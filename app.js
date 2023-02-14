@@ -53,8 +53,7 @@ window.onload = start;
 function start() {
     letter_generator();
     setPassword();
-    //check();
-   
+      
 }
 
 function letter_generator(){
