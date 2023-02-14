@@ -96,7 +96,15 @@ function check(letterNo){
         document.getElementById(letterId).style.background = "red";
         document.getElementById(letterId).style.color = "green";
         document.getElementById(letterId).style.border = "1px solid yellow";
+    } else {
+        document.getElementById(letterId).style.background = "lightgreen";
+        document.getElementById(letterId).style.color = "white";
+        document.getElementById(letterId).style.border = "1px solid yellow";
+        document.getElementById(letterId).style.borderRadius = "50px";
+
     }
+
+    document.getElementById(letterId).setAttribute("onClick", ";");
 
     if(error >= 9){
         document.getElementById("alphabet").innerHTML= 'You are dead!!!'
