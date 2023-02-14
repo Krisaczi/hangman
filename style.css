@@ -1,0 +1,59 @@
+body{
+    background-color: black;
+    color: white;
+    width: 1000px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    
+}
+
+#wrapper{
+    width: 950px;
+    margin: 0 auto;
+}
+
+#haslo{
+    height: 100px;
+    color: wheat;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+#hang-man{
+    width: 490px;
+    float: left;
+}
+
+#alphabet{
+    box-sizing: border-box;
+    
+    width: 350px;
+    height: 300px;
+    display: block;
+    float: left;
+    color: white;
+}
+
+#alphabet div{
+    display: inline-block;
+    font-size: 25px;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    border: 1px solid black;
+
+}
+
+#alphabet div:hover{
+    
+    background-color: gray;
+    border-radius: 35px;
+    opacity: 0.9;
+    
+}
