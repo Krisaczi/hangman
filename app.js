@@ -1,5 +1,7 @@
-var password = "FrontEnd Web Developer";
+var password = "FrontEnd Web Deweloper";
 password = password.toUpperCase();
+
+var error = 0;
 
 var hidden_password = "";
 for(var i = 0; i < password.length; i++ ){
@@ -51,6 +53,7 @@ window.onload = start;
 function start() {
     letter_generator();
     setPassword();
+    //check();
    
 }
 
@@ -58,7 +61,7 @@ function letter_generator(){
 var html = '';
 
 for(var i =0; i<32; i++){
-    var temp = '<div>' + letters[i] + '</div>'
+    var temp = '<div onClick="check(' + i + ');" id="L' + i + '">' + letters[i] + '</div>'
     html = html + temp;
     if((i+1) % 8 == 0){
         html = html + '<br>';
@@ -69,5 +72,42 @@ document.getElementById("alphabet").innerHTML = html;
 
 function setPassword() {
     document.getElementById("haslo").innerHTML = hidden_password;
+}
+
+function check(letterNo){
+    console.log("Działa? " + letterNo + " litera: " + letters[letterNo]);
+
+    var correctLetter = false;
+
+    for(var i = 0; i < password.length; i++) {
+        if(password.charAt(i) == letters[letterNo]) {
+            hidden_password = 
+            hidden_password.substring(0, i) + letters[letterNo] + hidden_password.substring(i+1);
+            correctLetter = true;
+        }
+    }
+
+    var letterId = "L" + letterNo;
+    
+    if(!correctLetter && error < 9){
+        error++;
+        var image = '<img src="/s'+ error +'.jpg" alt="post">'
+        document.getElementById("hang-man").innerHTML = image;
+        document.getElementById(letterId).style.background = "red";
+        document.getElementById(letterId).style.color = "green";
+        document.getElementById(letterId).style.border = "1px solid yellow";
+    }
+
+    if(error >= 9){
+        document.getElementById("alphabet").innerHTML= 'You are dead!!!'
+    }
+
+    if(password == hidden_password) {
+        document.getElementById("alphabet").innerHTML= 'You are free!!!'
+
+    }
+
+
+    setPassword();
 }
 
